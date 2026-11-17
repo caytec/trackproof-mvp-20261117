@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy — TrackProof</title>
+  <meta name="description" content="Learn how TrackProof handles campaign-link data, optional AI processing, and operational logs.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#087f5b">
+  <meta property="og:title" content="Privacy — TrackProof">
+  <meta property="og:description" content="Learn how TrackProof handles campaign-link data and optional AI processing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://caytec.github.io/trackproof-mvp-20261117/privacy.html">
+  <meta property="og:image" content="https://caytec.github.io/trackproof-mvp-20261117/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy — TrackProof">
+  <meta name="twitter:description" content="Learn how TrackProof handles campaign-link data and optional AI processing.">
+  <meta name="twitter:image" content="https://caytec.github.io/trackproof-mvp-20261117/og-image.svg">
+  <link rel="canonical" href="https://caytec.github.io/trackproof-mvp-20261117/privacy.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="TrackProof home">Track<span>Proof</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="index.html">Tool</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+
+  <main class="prose">
+    <p class="eyebrow">Privacy</p>
+    <h1>Privacy by default</h1>
+    <p>TrackProof is a planning and structural QA tool. The browser performs the core URL generation and validation locally.</p>
+
+    <h2>Data handling</h2>
+    <p>The browser does not save reports to an account or database. Requests sent to the optional API may appear in hosting or operational logs. Do not submit secrets or personal information.</p>
+
+    <h2>Optional AI processing</h2>
+    <p>If the operator configures Gemini or Groq, limited audit metadata may be sent to the configured provider for optional wording suggestions. The raw destination URL and campaign values are not intentionally included in the AI prompt. Provider processing is subject to the applicable provider terms.</p>
+
+    <h2>Campaign parameters are public-ish</h2>
+    <p>UTM values can appear in browser history, analytics systems, server logs, referrer data, screenshots, and shared links. Use redacted or non-identifying values.</p>
+
+    <h2>Retention and accounts</h2>
+    <p>This MVP has no built-in account, profile, or permanent report-storage system. Temporary runtime data and hosting logs may exist according to the deployment provider’s operational practices.</p>
+
+    <h2>Contact</h2>
+    <p>For deployment or privacy questions, contact the operator responsible for the TrackProof deployment.</p>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 TrackProof</span>
+    <a href="index.html">Back to tool</a>
+  </footer>
+</body>
+</html>

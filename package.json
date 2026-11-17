@@ -1,0 +1,18 @@
+{
+  "name": "trackproof-mvp-20261117",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Rules-first UTM checker and campaign tracking QA tool.",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "serve .",
+    "test": "node --test",
+    "check:syntax": "node --check api/generate.js",
+    "check": "npm run check:syntax && npm test"
+  },
+  "devDependencies": {
+    "serve": "14.2.4"
+  }
+}

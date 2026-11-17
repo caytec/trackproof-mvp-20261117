@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TrackProof — UTM Checker and Campaign Tracking QA</title>
+  <meta name="description" content="Check campaign links before they corrupt your reports. Generate a clean UTM URL, find tracking issues, and share a launch-ready tracking contract.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#087f5b">
+  <meta property="og:title" content="TrackProof — UTM Checker">
+  <meta property="og:description" content="Generate, audit, and hand off campaign tracking links.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://caytec.github.io/trackproof-mvp-20261117/">
+  <meta property="og:image" content="https://caytec.github.io/trackproof-mvp-20261117/og-image.svg">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TrackProof — UTM Checker">
+  <meta name="twitter:description" content="Generate, audit, and hand off campaign tracking links.">
+  <meta name="twitter:image" content="https://caytec.github.io/trackproof-mvp-20261117/og-image.svg">
+  <link rel="canonical" href="https://caytec.github.io/trackproof-mvp-20261117/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"TrackProof",
+    "url":"https://caytec.github.io/trackproof-mvp-20261117/",
+    "applicationCategory":"BusinessApplication",
+    "operatingSystem":"Web",
+    "description":"A rules-first UTM checker and campaign tracking QA tool.",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="TrackProof home">Track<span>Proof</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#checker">Check a link</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Campaign tracking QA</p>
+      <h1>Check your campaign links before they corrupt your reports.</h1>
+      <p class="hero-copy">Generate a clean UTM link, catch naming and parameter mistakes, and send your team a launch-ready tracking contract.</p>
+      <a class="button primary" href="#checker">Check a campaign link</a>
+    </section>
+
+    <section id="checker" class="workspace" aria-labelledby="checker-title">
+      <div class="section-heading">
+        <p class="eyebrow">Rules-first UTM checker</p>
+        <h2 id="checker-title">Build and audit your campaign URL</h2>
+        <p>TrackProof works without an AI provider. Optional AI enhancement is clearly disclosed and never required for the core audit.</p>
+      </div>
+
+      <form id="campaign-form">
+        <div class="form-grid">
+          <label class="field wide" for="destination">
+            Destination URL
+            <input id="destination" name="destination" type="url" inputmode="url" autocomplete="url" required aria-describedby="destination-help destination-error" placeholder="https://your-site.test/offer">
+            <small id="destination-help" class="field-help">Enter a complete HTTP or HTTPS URL.</small>
+            <small id="destination-error" class="field-error"></small>
+          </label>
+
+          <label class="field" for="campaign">
+            Campaign name
+            <input id="campaign" name="campaign" autocomplete="off" required aria-describedby="campaign-error" placeholder="spring_launch">
+            <small id="campaign-error" class="field-error"></small>
+          </label>
+
+          <label class="field" for="source">
+            Source
+            <input id="source" name="source" autocomplete="off" required aria-describedby="source-error" placeholder="newsletter">
+            <small id="source-error" class="field-error"></small>
+          </label>
+
+          <label class="field" for="medium">
+            Medium
+            <input id="medium" name="medium" autocomplete="off" required aria-describedby="medium-error" placeholder="email">
+            <small id="medium-error" class="field-error"></small>
+          </label>
+
+          <label class="field" for="content">
+            Content
+            <input id="content" name="content" autocomplete="off" aria-describedby="content-error" placeholder="hero_cta">
+            <small id="content-error" class="field-error"></small>
+          </label>
+
+          <label class="field" for="term">
+            Term <span class="muted">(optional)</span>
+            <input id="term" name="term" autocomplete="off" aria-describedby="term-error" placeholder="brand_keyword">
+            <small id="term-error" class="field-error"></small>
+          </label>
+
+          <label class="field" for="goal">
+            Conversion goal
+            <select id="goal" name="goal">
+              <option value="generate_lead">Generate lead</option>
+              <option value="sign_up">Sign up</option>
+              <option value="purchase">Purchase</option>
+              <option value="book_demo">Book demo</option>
+              <option value="download">Download</option>
+              <option value="contact_submit">Contact submit</option>
+            </select>
+          </label>
+        </div>
+
+        <p class="privacy-note" id="processing-note">
+          Your campaign fields are checked in your browser first. If optional AI enhancement is enabled by the site operator, limited campaign QA data may be sent to a third-party AI provider. Do not enter personal data, secrets, or credentials.
+        </p>
+
+        <p class="normalization-note">Tracking values are normalized to lowercase in the generated URL.</p>
+
+        <button id="submit-button" class="button primary" type="submit">Generate and check</button>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <p id="results-announcement" class="sr-only" aria-live="polite"></p>
+      </form>
+
+      <section id="results" class="results" hidden aria-labelledby="results-title">
+        <div class="result-top">
+          <div>
+            <p class="eyebrow">Audit result</p>
+            <h2 id="results-title" tabindex="-1">Tracking contract</h2>
+          </div>
+          <span id="status-badge" class="badge"></span>
+        </div>
+
+        <div class="link-card">
+          <h3>Final campaign URL</h3>
+          <code id="final-url"></code>
+          <div class="actions">
+            <button id="copy-url" class="button secondary" type="button">Copy URL</button>
+            <button id="copy-markdown" class="button secondary" type="button">Copy Markdown</button>
+            <button id="download-csv" class="button secondary" type="button">Download CSV</button>
+          </div>
+        </div>
+
+        <div class="result-grid">
+          <div>
+            <h3>Issues and recommendations</h3>
+            <div id="issues"></div>
+          </div>
+          <div>
+            <h3>Campaign details</h3>
+            <dl id="details" class="details"></dl>
+            <h3>Suggested event</h3>
+            <p id="event-suggestion"></p>
+          </div>
+        </div>
+
+        <p class="disclaimer">TrackProof is a planning and structural QA tool. It does not verify analytics configuration, attribution, consent handling, or platform reporting.</p>
+      </section>
+    </section>
+
+    <section class="feature-row" aria-label="Product benefits">
+      <article>
+        <h2>Generate clean UTM links</h2>
+        <p>Preserve existing query parameters and encode campaign values safely.</p>
+      </article>
+      <article>
+        <h2>Audit campaign naming</h2>
+        <p>Find missing fields, casing problems, duplicates, unsafe values, and privacy risks.</p>
+      </article>
+      <article>
+        <h2>Share a tracking contract</h2>
+        <p>Copy a compact tracking contract your client, developer, or teammate can understand.</p>
+      </article>
+    </section>
+
+    <section class="prose" aria-labelledby="utm-guide-title">
+      <h2 id="utm-guide-title">What is a UTM checker?</h2>
+      <p>A UTM checker reviews campaign URLs for missing, inconsistent, or risky tracking parameters before they are shared.</p>
+
+      <h3>Required campaign parameters</h3>
+      <ul>
+        <li><strong>utm_source</strong> identifies where traffic comes from.</li>
+        <li><strong>utm_medium</strong> identifies the marketing channel.</li>
+        <li><strong>utm_campaign</strong> identifies the campaign.</li>
+      </ul>
+
+      <h3>Why tracking QA matters</h3>
+      <p>A URL can be technically valid while still creating fragmented reports. Consistent lowercase naming, complete required fields, and privacy-safe campaign values make handoff easier for marketers, analysts, and developers.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 TrackProof</span>
+    <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+  </footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Sitemap: https://caytec.github.io/trackproof-mvp-20261117/sitemap.xml
